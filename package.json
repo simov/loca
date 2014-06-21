@@ -1,0 +1,26 @@
+{
+    "name": "loca",
+    "version": "1.0.0",
+    "description": "WebKit reporter for Mocha",
+    "keywords": [
+        "mocha",
+        "reporter",
+        "webkit",
+        "node-webkit"
+    ],
+    "license"   : "MIT",
+    "homepage"  : "https://github.com/simov/loca",
+    "author": {
+        "name"  : "simo",
+        "email" : "simeonvelichkov@gmail.com"
+    },
+    "repository": {
+        "type"  : "git",
+        "url"   : "git://github.com/simov/loca.git"
+    },
+    "devDependencies": {
+        "mocha" : "*",
+        "should": "*"
+    },
+    "main": "./webkit"
+}
