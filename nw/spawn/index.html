@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Node WebKit Mocha Spawn</title>
+
+    <script type="text/javascript" charset="utf-8">
+        // show the dev tools by default
+        require('nw.gui').Window.get().showDevTools().resizeTo(800, 1000);
+        
+        // spawn
+        var spawn = require('child_process').spawn;
+        var mocha = spawn('mocha', ['--reporter', 'spec', '--require', 'should', './test/']);
+        
+        mocha.stdout.on('data', function (e) {
+            console.log('data', e.toString().trim());
+        });
+        mocha.stdout.on('error', function (e) {
+            console.log('error', e.toString().trim());
+        });
+        mocha.stdout.on('close', function (e) {
+            console.log('close', e.toString().trim());
+        });
+        mocha.stdout.on('end', function (e) {
+            console.log('end');
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>
