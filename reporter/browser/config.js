@@ -1,6 +1,8 @@
 
 var should = chai.should();
-mocha.reporter('webkit');
+// mocha.reporter('webkit'); // in case this got merged in
+mocha.reporter(mocha.WebKit);
+
 mocha.setup({
     ui: 'bdd',
     globals: ['']
