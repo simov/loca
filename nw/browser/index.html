@@ -1,55 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <title>Node WebKit Mocha Browser</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<title>Node WebKit Mocha Browser</title>
 
-    <!-- style -->
-    <link href="jslib/mocha.css" rel="stylesheet" type="text/css" media="all" />
-    <style type="text/css">#iframe { width: 100%; height: 500px; }</style>
-    
-    <!-- Mocha -->
-    <script type="text/javascript" charset="utf-8">
-        // Remove symbols of node-webkit to avoid conficts with mocha in browser.
-        var nodeRequire = require;
-        var nodeGlobal = global;
-        var nodeProcess = process;
-        require = undefined;
-        global = undefined;
-        process = undefined;
-    </script>
-    <!--
-        Use the browser version of mocha, the node version of mocha will
-        run tests in node contex, which make it imposssible to test nw.gui.
-        Mocha needs to be v1.11.0 - https://github.com/visionmedia/mocha/issues/960
-    -->
-    <script src="jslib/mocha.js" type="text/javascript" charset="utf-8"></script>
-    <script src="jslib/chai.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" charset="utf-8">
-        // Restore default node-webkit environment.
-        require = nodeRequire;
-        global = nodeGlobal;
-        process = nodeProcess;
-    </script>
+	<!-- style -->
+	<link href="jslib/mocha.css" rel="stylesheet" type="text/css" media="all" />
+	<style type="text/css">#iframe { width: 100%; height: 500px; }</style>
+	
+	<!-- Mocha -->
+	<script type="text/javascript" charset="utf-8">
+		// Remove symbols of node-webkit to avoid conficts with mocha in browser.
+		var nodeRequire = require;
+		var nodeGlobal = global;
+		var nodeProcess = process;
+		require = undefined;
+		global = undefined;
+		process = undefined;
+	</script>
+	<!--
+		Use the browser version of mocha, the node version of mocha will
+		run tests in node contex, which make it imposssible to test nw.gui.
+		Mocha needs to be v1.11.0 - https://github.com/visionmedia/mocha/issues/960
+	-->
+	<script src="jslib/mocha.js" type="text/javascript" charset="utf-8"></script>
+	<script src="jslib/chai.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" charset="utf-8">
+		// Restore default node-webkit environment.
+		require = nodeRequire;
+		global = nodeGlobal;
+		process = nodeProcess;
+	</script>
 
-    <!-- jquery -->
-    <script src="jslib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-    
-    <!-- globals -->
-    <script type="text/javascript" charset="utf-8">
-        // show the dev tools by default
-        require('nw.gui').Window.get().showDevTools().resizeTo(800, 1000);
+	<!-- jquery -->
+	<script src="jslib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	
+	<!-- globals -->
+	<script type="text/javascript" charset="utf-8">
+		// show the dev tools by default
+		require('nw.gui').Window.get().showDevTools().resizeTo(800, 1000);
 
-        var tests = {};
-    </script>
-    <!-- test suite -->
-    <script src="test/one.js" type="text/javascript" charset="utf-8"></script>
-    <script src="test/two.js" type="text/javascript" charset="utf-8"></script>
+		var tests = {};
+	</script>
+	<!-- test suite -->
+	<script src="test/one.js" type="text/javascript" charset="utf-8"></script>
+	<script src="test/two.js" type="text/javascript" charset="utf-8"></script>
 
-    <!-- test config -->
-    <script src="config.js" type="text/javascript" charset="utf-8"></script>
+	<!-- test config -->
+	<script src="config.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
-    <div id="mocha"></div>
+	<div id="mocha"></div>
 </body>
 </html>

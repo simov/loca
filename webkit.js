@@ -84,7 +84,7 @@ function WebKit(runner) {
 
     // passes
     console.log('%c'+(stats.passes||0)+' passing', styles.success);
-    
+
     // pending
     if (stats.pending) {
       console.log('%c'+stats.pending+' pending', styles.pending);

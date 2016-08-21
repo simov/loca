@@ -43,8 +43,8 @@ function Base(runner) {
     test.speed = test.duration > test.slow()
       ? 'slow'
       : test.duration > medium
-        ? 'medium'
-        : 'fast';
+      ? 'medium'
+      : 'fast';
 
     stats.passes++;
   });
@@ -110,7 +110,7 @@ function WebKit(runner) {
     , failures = 0;
 
   runner.on('start', function(){
-    console.time('duration');
+  console.time('duration');
   });
 
   runner.on('suite', function(suite){
@@ -133,11 +133,11 @@ function WebKit(runner) {
     }
     else if ('medium' == test.speed) {
       console.log('%c'+Base.symbols.ok+' '+test.title+' %c'+test.duration,
-        styles.success, styles.medium);
+      styles.success, styles.medium);
     }
     else {
       console.log('%c'+Base.symbols.ok+' '+test.title+' %c'+test.duration,
-        styles.success, styles.slow);
+      styles.success, styles.slow);
     }
   });
 
@@ -153,7 +153,7 @@ function WebKit(runner) {
 
     // passes
     console.log('%c'+(stats.passes||0)+' passing', styles.success);
-    
+
     // pending
     if (stats.pending) {
       console.log('%c'+stats.pending+' pending', styles.pending);
@@ -167,29 +167,29 @@ function WebKit(runner) {
   }.bind(this));
 
   function errors(failures){
-    failures.forEach(function(test, i){
-      // msg
-      var err = test.err
-        , message = err.message || ''
-        , stack = err.stack || message
-        , index = stack.indexOf(message) + message.length
-        , msg = stack.slice(0, index)
-        , actual = err.actual
-        , expected = err.expected
-        , escape = true;
+  failures.forEach(function(test, i){
+    // msg
+    var err = test.err
+      , message = err.message || ''
+      , stack = err.stack || message
+      , index = stack.indexOf(message) + message.length
+      , msg = stack.slice(0, index)
+      , actual = err.actual
+      , expected = err.expected
+      , escape = true;
 
-      // uncaught
-      if (err.uncaught) {
-        msg = 'Uncaught ' + msg;
-      }
+    // uncaught
+    if (err.uncaught) {
+      msg = 'Uncaught ' + msg;
+    }
 
-      // indent stack trace without msg
-      stack = stack.slice(index ? index + 1 : index)
-        .replace(/^/gm, '  ');
+    // indent stack trace without msg
+    stack = stack.slice(index ? index + 1 : index)
+      .replace(/^/gm, '  ');
 
-      console.error((i + 1)+') '+test.fullTitle()+'\n%c'+msg+'\n%c'+stack,
-        styles.bold, styles.normal);
-    });
+    console.error((i + 1)+') '+test.fullTitle()+'\n%c'+msg+'\n%c'+stack,
+    styles.bold, styles.normal);
+  });
   }
 }
 

@@ -1,9 +1,9 @@
 {
-    "name": "node-webkit-mocha",
-    
-    "main": "index.html",
-    "window": {
-        "width": 800,
-        "height": 1000
-    }
+	"name": "node-webkit-mocha",
+	
+	"main": "index.html",
+	"window": {
+		"width": 800,
+		"height": 1000
+	}
 }

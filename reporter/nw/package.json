@@ -1,14 +1,14 @@
 {
-    "name": "node-webkit-mocha",
+  "name": "node-webkit-mocha",
 
-    "dependencies": {
-        "mocha": "*",
-        "should": "*"
-    },
-    
-    "main": "index.html",
-    "window": {
-        "width": 800,
-        "height": 1000
-    }
+  "dependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+
+  "main": "index.html",
+  "window": {
+    "width": 800,
+    "height": 1000
+  }
 }

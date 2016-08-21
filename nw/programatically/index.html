@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <title>Node WebKit Mocha Programatically</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<title>Node WebKit Mocha Programatically</title>
 
-    <script src="jslib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-    
-    <script type="text/javascript" charset="utf-8">
-        // show the dev tools by default
-        require('nw.gui').Window.get().showDevTools().resizeTo(800, 1000);
-        
-        $(function () {
-            // programatically
-            var should = require('should');
-            var Mocha = require('mocha'),
-                fs = require('fs'),
-                path = require('path');
+	<script src="jslib/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	
+	<script type="text/javascript" charset="utf-8">
+		// show the dev tools by default
+		require('nw.gui').Window.get().showDevTools().resizeTo(800, 1000);
+		
+		$(function () {
+			// programatically
+			var should = require('should');
+			var Mocha = require('mocha'),
+				fs = require('fs'),
+				path = require('path');
 
-            // First, you need to instantiate a Mocha instance.
-            var mocha = new Mocha;
-            mocha.reporter('spec');
+			// First, you need to instantiate a Mocha instance.
+			var mocha = new Mocha;
+			mocha.reporter('spec');
 
-            // Then, you need to use the method "addFile" on the mocha
-            // object for each file.
+			// Then, you need to use the method "addFile" on the mocha
+			// object for each file.
 
-            // Here is an example:
-            fs.readdirSync('test').filter(function (file) {
-                // Only keep the .js files
-                return file.substr(-3) === '.js';
+			// Here is an example:
+			fs.readdirSync('test').filter(function (file) {
+				// Only keep the .js files
+				return file.substr(-3) === '.js';
 
-            }).forEach(function (file) {
-                // Use the method "addFile" to add the file to mocha
-                mocha.addFile(
-                    path.join('test', file)
-                );
-            });
+			}).forEach(function (file) {
+				// Use the method "addFile" to add the file to mocha
+				mocha.addFile(
+					path.join('test', file)
+				);
+			});
 
-            // Now, you can run the tests.
-            mocha.run(function (failures) {
-                process.on('exit', function () {
-                    process.exit(failures);
-                });
-            });
-        });
-    </script>
+			// Now, you can run the tests.
+			mocha.run(function (failures) {
+				process.on('exit', function () {
+					process.exit(failures);
+				});
+			});
+		});
+	</script>
 </head>
 <body>
 </body>
